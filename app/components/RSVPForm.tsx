@@ -8,8 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { strings } from "@/app/utils/strings";
-//import { submitRSVP } from "../actions/submitRSVP";
-//import { Toaster, toast } from "sonner";
+import { submitRSVP } from "../actions/submitRSVP";
+import { Toaster, toast } from "sonner";
 
 export default function RSVPForm() {
   const [name, setName] = useState("");
@@ -37,21 +37,21 @@ export default function RSVPForm() {
     formData.append("attendance", attendance);
 
     setIsLoading(true);
-    // const result = await submitRSVP(formData);
+    const result = await submitRSVP(formData);
 
-    // if (result.success) {
-    //   toast.success(strings.thankYouMessage); // Updated toast usage
-    //   setName("");
-    //   setEmail("");
-    //   setAccompany(null);
-    //   setAttendance("yes");
-    //   setErrors({});
-    // } else {
-    //   toast.error(result.message); // Updated toast usage
-    //   if (result.error?.code === "23505") {
-    //     setErrors({ email: "Email already exists" });
-    //   }
-    // }
+    if (result.success) {
+      toast.success(strings.thankYouMessage); // Updated toast usage
+      setName("");
+      setEmail("");
+      setAccompany(null);
+      setAttendance("yes");
+      setErrors({});
+    } else {
+      toast.error(result.message); // Updated toast usage
+      if (result.error?.code === "23505") {
+        setErrors({ email: "Email already exists" });
+      }
+    }
     setIsLoading(false);
   };
 
@@ -65,7 +65,7 @@ export default function RSVPForm() {
 
   return (
     <div className="max-w-md mx-auto my-10">
-        {/* <Toaster /> */}
+        <Toaster />
       <h1 className="text-2xl font-bold mb-4">{strings.title}</h1>
       <p className="mb-6">{strings.description}</p>
       <div className="mb-6">
