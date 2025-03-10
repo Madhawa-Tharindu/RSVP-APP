@@ -21,6 +21,7 @@ export default function RSVPForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({}); // Clear previous errors
     if (!name) {
       setErrors({ name: "Name is required" });
       return;
@@ -38,6 +39,12 @@ export default function RSVPForm() {
 
     setIsLoading(true);
     const result = await submitRSVP(formData);
+
+    if (!result) {
+      toast.error("An unexpected error occurred. Please try again.");
+      setIsLoading(false);
+      return;
+    }
 
     if (result.success) {
       toast.success(strings.thankYouMessage); // Updated toast usage
