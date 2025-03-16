@@ -48,6 +48,7 @@ export default function RSVPForm() {
 
     if (result.success) {
       toast.success(strings.thankYouMessage); // Updated toast usage
+      //reset form
       setName("");
       setEmail("");
       setAccompany(null);
