@@ -1,4 +1,4 @@
-import RSVPForm from "./components/RSVPForm";
+import RSVPForm from "./_components/RSVPForm";
 
 
 export default function Home() {
