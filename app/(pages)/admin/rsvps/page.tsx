@@ -2,9 +2,12 @@ import RSVPTable from "@/app/_components/RSVPTable";
 import { Button } from "@/components/ui/button";
 import { House } from "lucide-react";
 import Link from "next/link";
+import { getRSVP } from "@/app/actions/getRSVP";
 
 export default async function RSVPsPage() {
-    const { success, data, message } = await getRSVPs();
+    const { success, data, message } = await getRSVP();
+
+    // TODO : redirect to login if no auth
 
     return (
         <div className="container mx-auto mt-8 p-4">
@@ -23,7 +26,7 @@ export default async function RSVPsPage() {
 
 
             {/* Tables */}
-            <RSVPTable data={[]} />
+            <RSVPTable data={data || []} />
 
         </div>
     )

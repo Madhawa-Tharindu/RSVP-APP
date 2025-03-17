@@ -28,6 +28,8 @@ const RSVPTable = ({ data }: RSVPTableProps) => {
 
     const [filter, setFilter] = useState("");
 
+    // const filteredData = data.filter((rsvp) => rsvp.name.toLowerCase().includes(filter.toLowerCase()));
+
     const filteredData = useMemo(() => {
         return data.filter((rsvp) =>
           rsvp.name.toLowerCase().includes(filter.toLowerCase())
