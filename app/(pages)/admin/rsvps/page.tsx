@@ -9,6 +9,10 @@ export default async function RSVPsPage() {
 
     // TODO : redirect to login if no auth
 
+    if (!success) {
+        return <div className="container mx-auto mt-8 p-4">Error: {message}</div>;
+      }
+
     return (
         <div className="container mx-auto mt-8 p-4">
             <div className="flex justify-between items-center mb-6">
