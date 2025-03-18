@@ -53,7 +53,7 @@ const RSVPTable = ({ data }: RSVPTableProps) => {
                             <TableHead>Name</TableHead>
                             <TableHead>Email</TableHead>
                             <TableHead>Number of Guests</TableHead>
-                            <TableHead className="text-right">Attending</TableHead>
+                            <TableHead>Attending</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>

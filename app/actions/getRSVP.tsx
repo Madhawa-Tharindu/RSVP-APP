@@ -5,7 +5,7 @@ import { createClient } from "../utils/supabase/server";
 export async function getRSVP() {
     const supabase = await createClient();
 
-    const { data, error } = await supabase.from("rsvp").select("*");
+    const { data, error } = await supabase.from("rsvps").select("*");
 
     if (error) {
         console.error("Error fetching RSVPs: ", error);

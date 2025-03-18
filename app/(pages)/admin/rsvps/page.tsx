@@ -27,7 +27,6 @@ export default async function RSVPsPage() {
 
             {/* Tables */}
             <RSVPTable data={data || []} />
-
         </div>
     )
 }
